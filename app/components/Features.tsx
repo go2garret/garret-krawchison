@@ -42,7 +42,7 @@ export default function Features() {
 
     {
       company: "Leonard’s Studio",
-      title: "Senior Systems Engineer · Software Engineer",
+      title: "Senior Software Engineer",
       dateRange: "Dec 2018 – Jul 2023",
       location: "St. Augustine, FL",
       description:
@@ -71,7 +71,7 @@ export default function Features() {
     },
 
     {
-      company: "Heery International (CSX Contractor)",
+      company: "CSX Transportation / Heery International",
       title: "GIS Analyst",
       dateRange: "Jul 2011 – Mar 2017",
       location: "St. Augustine, FL",
@@ -171,34 +171,29 @@ export default function Features() {
   return (
     <section id="work" className="w-full bg-slate-950 py-20 sm:py-32">
       <div className="mx-auto">
-        <div className="mb-16 text-left lg:text-center">
-          <h2 className="text-3xl font-bold text-white sm:text-4xl">Experience</h2>
-          <p className="mt-4 text-lg text-slate-400">Proven expertise in full-stack development, GIS systems, and platform architecture.</p>
-        </div>
-
         <div className="space-y-16">
           {jobs.map((job, jobIndex) => (
             <div key={jobIndex} className="w-full">
               {/* Job Overview - lighter background (full width) */}
               <div className="bg-slate-900 px-6 py-24 sm:px-8 sm:py-24 text-left lg:text-center border-b border-slate-800">
                 <div className="max-w-6xl mx-auto">
-                  <h3 className="text-2xl font-bold text-white">{job.company}</h3>
-                  <p className="mt-2 text-lg font-semibold text-blue-400">{job.title}</p>
-                  <p className="mt-1 text-slate-400 text-sm">{job.dateRange}{job.location && ` • ${job.location}`}</p>
+                  <h3 className="text-4xl font-semibold text-blue-400 tracking-tight">{job.company}</h3>
+                  <p className="mt-1 text-4xl uppercase font-semibold  text-white tracking-tight">{job.title}</p>
+                  <p className="mt-1 text-slate-400 text-sm">{job.dateRange}</p>
                   <p className="mt-4 text-slate-300 leading-relaxed max-w-3xl mx-auto">{job.description}</p>
                 </div>
               </div>
 
               {/* Projects - darker background (full width) */}
-              <div className="bg-slate-950 px-6border-t border-slate-800">
+              <div className="bg-slate-950  border-slate-800 px-8">
                 <div className="max-w-6xl mx-auto space-y-0">
                   {job.projects.map((project, projectIndex) => (
                     <div key={projectIndex} className="grid gap-8 lg:grid-cols-2 lg:items-center  py-24 sm:px-8">
                       <div className="text-left">
-                        <p className="text-xs font-semibold text-blue-400 uppercase tracking-widest">
+                        <p className="text-sm tracking-normal font-semibold text-blue-400 uppercase">
                           {job.company}
                         </p>
-                        <h4 className="mt-3 text-xl font-bold text-white">{project.title}</h4>
+                        <h4 className="mt-3 text-4xl font-semibold text-white tracking-tight">{project.title}</h4>
                         <p className="mt-4 text-slate-400 leading-relaxed">{project.description}</p>
                       </div>
 
