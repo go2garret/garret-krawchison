@@ -13,11 +13,14 @@ export default function Hero() {
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
             Hi, I&apos;m Garret, and I&apos;m a Full-Stack Developer.
           </h1>
-          <div className="mt-10 max-w-3xl mx-auto">
-            <div className="grid space-y-4 text-center">
+          <p className="mt-6 text-slate-300 max-w-2xl mx-auto">
+            I build full-stack web applications and geospatial tools that solve real problems. Currently building <span className="text-blue-300 font-semibold">Pastemap.com</span>, a collaborative GIS platform. I love combining elegant design with powerful backend systems to create experiences that people actually want to use.
+          </p>
+          <div className="mt-12 max-w-3xl mx-auto">
+            <div className="grid space-y-8 text-center">
               <div>
-                <h3 className="text-sm font-semibold text-slate-300 mb-6 uppercase">Web Development</h3>
-                <div className="flex flex-wrap justify-center space-x-12 space-y-8">
+                <h3 className="text-md font-semibold text-slate-200 mb-6">Web Development</h3>
+                <div className="flex flex-wrap justify-center gap-x-12 gap-y-8">
                   {[
                     { name: 'Vue.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg' },
                     { name: 'React', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg' },
@@ -27,8 +30,11 @@ export default function Hero() {
                     { name: 'PHP', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg' },
                     { name: 'PostgreSQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg' },
                     { name: 'MySQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg' },
+                    { name: 'Linux', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg' },
+                    { name: 'Nginx', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg' },
+                    { name: 'Docker', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg' },
                   ].map((skill) => (
-                    <div key={skill.name} className="flex flex-col items-center gap-2 group">
+                    <div key={skill.name} className="flex flex-col items-center gap-2 group justify-start text-center">
                       {skill.logo ? (
                         <img
                           src={skill.logo}
@@ -45,8 +51,8 @@ export default function Hero() {
               </div>
 
               <div>
-                <h3 className="text-sm font-semibold text-slate-300 mb-6 uppercase">Geospatial & Mapping</h3>
-                <div className="flex flex-wrap items-start justify-center space-x-12 space-y-8">
+                <h3 className="text-md font-semibold text-slate-200 mb-6">Geospatial & Mapping</h3>
+                <div className="flex flex-wrap items-start justify-center gap-x-12 gap-y-8">
                   {[
                     { name: 'Esri', logo: '/esri.png' },
                     { name: 'ArcPy', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/archive/c/c3/20220821153845%21Python-logo-notext.svg/120px-Python-logo-notext.svg.png' },
@@ -74,12 +80,12 @@ export default function Hero() {
             </div>
           </div>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
-            <button className="rounded-lg bg-blue-600 px-8 py-3 font-semibold text-white hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-200">
-              Get Started
-            </button>
-            <button className="rounded-lg border border-slate-400 px-8 py-3 font-semibold text-white hover:bg-slate-800 hover:border-slate-300 transition-colors">
-              Learn More
-            </button>
+            <a href="#work" className="rounded-lg hover:cursor-pointer bg-blue-600 px-8 py-3 font-semibold text-white hover:bg-blue-700 hover:shadow-lg transition-all duration-200 text-center">
+              View My Work
+            </a>
+            <a href="#contact" className="rounded-lg hover:cursor-pointer border border-slate-400 px-8 py-3 font-semibold text-white hover:bg-slate-800 hover:border-slate-300 transition-colors text-center">
+              Contact Me
+            </a>
           </div>
         </div>
       </div>
