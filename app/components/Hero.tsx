@@ -14,25 +14,60 @@ export default function Hero() {
             Hi, I&apos;m Garret, and I&apos;m a Full-Stack Developer.
           </h1>
           <div className="mt-10 max-w-3xl mx-auto">
-            <div className="grid gap-8 text-center">
+            <div className="grid space-y-4 text-center">
               <div>
-                <h3 className="text-lg font-semibold text-slate-500 mb-4">Web Development</h3>
-                <div className="flex flex-wrap justify-center gap-2">
-                  {['Vue.js', 'React', 'Laravel', 'JavaScript', 'TypeScript', 'PHP', 'PostgreSQL', 'MySQL'].map((skill) => (
-                    <span key={skill} className="px-4 py-2 bg-slate-800 border border-slate-700 rounded-full text-sm text-slate-200 hover:border-blue-500 transition-colors">
-                      {skill}
-                    </span>
+                <h3 className="text-sm font-semibold text-slate-300 mb-6 uppercase">Web Development</h3>
+                <div className="flex flex-wrap justify-center space-x-12 space-y-8">
+                  {[
+                    { name: 'Vue.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg' },
+                    { name: 'React', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg' },
+                    { name: 'Laravel', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg' },
+                    { name: 'JavaScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg' },
+                    { name: 'TypeScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg' },
+                    { name: 'PHP', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg' },
+                    { name: 'PostgreSQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg' },
+                    { name: 'MySQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg' },
+                  ].map((skill) => (
+                    <div key={skill.name} className="flex flex-col items-center gap-2 group">
+                      {skill.logo ? (
+                        <img
+                          src={skill.logo}
+                          alt={skill.name}
+                          className="h-8 w-8 opacity-75 grayscale-25 hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]"
+                        />
+                      ) : null}
+                      <span className="text-sm text-slate-300 group-hover:text-slate-200 transition-colors">
+                        {skill.name}
+                      </span>
+                    </div>
                   ))}
                 </div>
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold text-slate-500 mb-4">Geospatial & Mapping</h3>
-                <div className="flex flex-wrap justify-center gap-2">
-                  {['Esri', 'ArcPy', 'PostGIS', 'GDAL', 'MapLibre', 'Mapbox', 'Leaflet', 'GeoJSON'].map((skill) => (
-                    <span key={skill} className="px-4 py-2 bg-slate-800 border border-slate-700 rounded-full text-sm text-slate-200 hover:border-purple-500 transition-colors">
-                      {skill}
-                    </span>
+                <h3 className="text-sm font-semibold text-slate-300 mb-6 uppercase">Geospatial & Mapping</h3>
+                <div className="flex flex-wrap items-start justify-center space-x-12 space-y-8">
+                  {[
+                    { name: 'Esri', logo: '/esri.png' },
+                    { name: 'ArcPy', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/archive/c/c3/20220821153845%21Python-logo-notext.svg/120px-Python-logo-notext.svg.png' },
+                    { name: 'PostGIS', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg' },
+                    { name: 'GDAL', logo: '/osgeo.png' },
+                    { name: 'MapLibre', logo: 'https://maplibre.org/maplibre-gl-js/docs/assets/logo.svg' },
+                    { name: 'Mapbox', logo: 'https://images.icon-icons.com/2699/PNG/512/mapbox_logo_icon_169974.png' },
+                    { name: 'GeoJSON', logo: 'https://cdn-icons-png.flaticon.com/512/136/136525.png' },
+                  ].map((skill) => (
+                    <div key={skill.name} className="flex flex-col items-center gap-2 group justify-center">
+                      {skill.logo ? (
+                        <img
+                          src={skill.logo}
+                          alt={skill.name}
+                          className="h-8 w-8 w-auto grayscale-25 hover:grayscale-0 opacity-75 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(168,85,247,0.5)]"
+                        />
+                      ) : null}
+                      <span className="text-sm text-slate-300 group-hover:text-slate-200 transition-colors">
+                        {skill.name}
+                      </span>
+                    </div>
                   ))}
                 </div>
               </div>
