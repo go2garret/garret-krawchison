@@ -14,12 +14,10 @@ export default function Hero() {
             Hi, I&apos;m Garret, and I&apos;m a Full-Stack Developer.
           </h1>
           <div className="mt-10 max-w-3xl mx-auto">
-            <h2 className="text-2xl font-semibold text-slate-100 mb-8">Core Competencies</h2>
-
-            <div className="grid gap-8 text-left">
+            <div className="grid gap-8 text-center">
               <div>
-                <h3 className="text-lg font-semibold text-blue-400 mb-4">Web Development</h3>
-                <div className="flex flex-wrap gap-2">
+                <h3 className="text-lg font-semibold text-slate-500 mb-4">Web Development</h3>
+                <div className="flex flex-wrap justify-center gap-2">
                   {['Vue.js', 'React', 'Laravel', 'JavaScript', 'TypeScript', 'PHP', 'PostgreSQL', 'MySQL'].map((skill) => (
                     <span key={skill} className="px-4 py-2 bg-slate-800 border border-slate-700 rounded-full text-sm text-slate-200 hover:border-blue-500 transition-colors">
                       {skill}
@@ -29,8 +27,8 @@ export default function Hero() {
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold text-purple-400 mb-4">Geospatial & Mapping</h3>
-                <div className="flex flex-wrap gap-2">
+                <h3 className="text-lg font-semibold text-slate-500 mb-4">Geospatial & Mapping</h3>
+                <div className="flex flex-wrap justify-center gap-2">
                   {['Esri', 'ArcPy', 'PostGIS', 'GDAL', 'MapLibre', 'Mapbox', 'Leaflet', 'GeoJSON'].map((skill) => (
                     <span key={skill} className="px-4 py-2 bg-slate-800 border border-slate-700 rounded-full text-sm text-slate-200 hover:border-purple-500 transition-colors">
                       {skill}
