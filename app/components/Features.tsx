@@ -26,32 +26,40 @@ export default function Features() {
   const jobs: Job[] = [
     {
       company: "Pastemap.com",
-      title: "Owner, Developer",
+      title: "Founder, Builder",
       dateRange: "Jul 2023 – Present",
       description:
         "Launched Pastemap.com, a modern, browser-based GIS platform focused on collaboration and custom mapping workflows. The platform supports real-time client updates via Laravel Reverb, imports external datasets into vector tiles using PostGIS, and includes advanced printing and custom mapping tools.",
       projects: [
         {
-          title: "Sharing Maps & Map Attachments",
+          title: "Sharing Maps",
           description:
-            "One of the most exciting features I developed for Pastemap is map sharing and collaboration. Users can selectively share maps with team members, providing fine-grained privacy controls. I also introduced a flexible attachment system that allows users to associate rich external content with their map data.",
-          images: "/pastemap.jpg",
+            "One of the most exciting features I developed for Pastemap is map sharing and collaboration. Users can selectively share maps with team members, providing fine-grained privacy controls. Maps can also be published publicly, allowing custom maps to be shared with a wider audience.\n\nTo support this, I designed and built a collaborators system that allows users to search for other Pastemap users and add them as collaborators on a map. Collaborators can view maps and edit map documents, enabling teams to collaboratively label, annotate, and enhance map content.",
+          images: [
+            "/collaborators.webp",
+            "/public-map.png",
+          ],
+        },
+        {
+          title: "Map Attachments & Symbols",
+          description:
+            "I introduced a flexible attachment system that allows users to associate rich external content with their map data. Users can link documents hosted on the web—such as Google Docs and other online resources—and display them contextually on the map by type. This feature enables visually rich, data-driven maps that are shaped directly by user input.",
+          images: "/land-owners.webp",
         },
       ],
     },
 
     {
       company: "Leonard’s Studio",
-      title: "Senior Software Engineer",
+      title: "Senior Systems Engineer",
       dateRange: "Dec 2018 – Jul 2023",
-      location: "St. Augustine, FL",
       description:
         "Primary contributor to a new School Admin Portal and Digital ID app used across client schools. Led full-stack development, stakeholder collaboration, and modernization efforts that improved operational workflows and customer adoption.",
       projects: [
         {
           title: "School Admin Portal",
           description:
-            "I helped design and build a brand-new portal to support customer relations and internal operations for a large team of photographers serving hundreds of schools. Built with Vue 3, Laravel, C#, and MySQL, it supported data management for hundreds of thousands of students and a custom permissions model.",
+            "I helped design and build a brand-new portal to support customer relations and internal operations for a large team of photographers serving hundreds of schools. I was the primary contributor to this multi-year project, working closely with stakeholders and management throughout development.\n\nThe portal was built from the ground up using Vue 3, Laravel, C#, and MySQL. It provided internal employees with tools to manage data for hundreds of thousands of students, while giving school administrators the ability to update student information, select preferred photos, and manage workflows. Access and functionality were controlled through a custom user permissions model.\n\nThis portal became a major marketing asset for the company, giving schools modern tools to interact with student data and the yearbook process. Following its launch, Leonard's saw a 29% increase in the number of schools served, with strong enthusiasm across internal teams.",
           images: [
             "/school-portal-desktop.png",
             "/digital-id-logins.png",
@@ -60,7 +68,7 @@ export default function Features() {
         {
           title: "Digital ID App",
           description:
-            "Led development on a Digital ID application allowing students to access IDs via phones. The app included push notifications and an admin manager integrated into the portal, reaching 20,000+ registered users and thousands of daily logins.",
+            "I led development on a new Digital ID application that allowed students to access their school IDs directly from their phones. The system included both a student-facing mobile experience and an administrative management tool—the Digital ID Manager—integrated into the School Admin Portal.\n\nOne of the most impactful features was the ability for schools to send notifications directly to students through the app. Schools could broadcast messages campus-wide or target specific grades or individual students.\n\nThe app reached 20,000+ registered users, with thousands of daily logins. It became a key selling point for the sales team and helped drive new customer adoption.",
           images: [
             "/app-notifications.webp",
             "/digital-id-manager.png",
@@ -71,7 +79,7 @@ export default function Features() {
     },
 
     {
-      company: "CSX Transportation / Heery International",
+      company: "Heery International (CSX Contractor)",
       title: "GIS Analyst",
       dateRange: "Jul 2011 – Mar 2017",
       location: "St. Augustine, FL",
@@ -81,8 +89,14 @@ export default function Features() {
         {
           title: "Hi-Res Railroad Mapping Project Automation",
           description:
-            "Developed Python/ArcPy tools for the full pipeline: importing CAD, QC, labeling, calibration, and attribute population. Engineered a tiled processing approach to reliably generate subdivision polygons across large datasets.",
+            "I built automation to support large portions of the workflow for importing, processing, and publishing high-resolution railroad mapping data. A particularly rewarding component was the automated calibration of railroad networks with accurate milepost values using ArcMap Route Network tools, delivered through Python-enabled workflows. This alone saved hours of manual processing per dataset.\n\nThe Python tools handled the entire pipeline: importing raw CAD data, performing quality control, applying labels, and populating spatial attributes. These tools captured institutional knowledge and transformed it into a cohesive automation framework, allowing the team to process data significantly faster and more reliably.",
           images: "/railroad-subdivisions.webp",
+        },
+        {
+          title: "Subdivision Polygon Automation",
+          description:
+            "CSX faced a long-standing challenge in creating subdivision polygons from railroad line data so subdivision areas could be clearly visualized on maps. Technicians were manually maintaining these polygons, which was time-consuming and error-prone.\n\nWe evaluated the Thiessen polygon approach for converting line attributes into polygon regions, but processing 24,000 miles of track at once exceeded memory limits. I engineered a solution that divided the data into a vector grid, processing each cell independently and merging the results into a master layer. This approach made large-scale polygon generation reliable and repeatable.",
+          images: "/railway-subdivisions.webp",
         },
       ],
     },
@@ -98,7 +112,7 @@ export default function Features() {
         {
           title: "FAA Wind Turbines Data Analysis",
           description:
-            "Built an automated Python workflow to extract weekly FAA turbine applications, generate project boundaries, and summarize forecasts—improving leadership visibility into competitor activity.",
+            "I independently developed a fully automated Python workflow to extract new wind turbine applications from FAA open datasets, updated weekly. The data was loaded into an SDE Enterprise database and analyzed to identify competitor projects, generate project boundaries, and summarize total project kHz and forecast timelines.\n\nThis work became a core component of a broader business intelligence initiative, giving leadership near real-time visibility into competitor activity. The executive team was highly enthusiastic about the results, as it significantly improved market awareness and strategic planning.",
           images: "/wind-turbines-map.webp",
         },
       ],
@@ -169,7 +183,7 @@ export default function Features() {
   }
 
   return (
-    <section id="work" className="w-full bg-slate-950 py-20 sm:py-32">
+    <section id="work" className="w-full bg-slate-950 pt-20 sm:pt-32">
       <div className="mx-auto">
         <div className="space-y-16">
           {jobs.map((job, jobIndex) => (
@@ -194,7 +208,7 @@ export default function Features() {
                           {job.company}
                         </p>
                         <h4 className="mt-3 text-4xl font-semibold text-white tracking-tight">{project.title}</h4>
-                        <p className="mt-4 text-slate-400 leading-relaxed">{project.description}</p>
+                        <p className="mt-4 text-slate-400 leading-relaxed whitespace-pre-wrap">{project.description}</p>
                       </div>
 
                       <div>{renderImages(project.images)}</div>
