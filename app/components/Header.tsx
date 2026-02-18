@@ -4,7 +4,7 @@ export default function Header() {
       <div className="mx-auto max-w-6xl px-6 py-3 flex items-center justify-between">
         <a href="#home" className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center font-bold text-white">GK</div>
-          <span className="sr-only">GK Portfolio</span>
+          <span className="hidden md:flex">Garret Krawchison</span>
         </a>
 
         <nav className="hidden md:flex gap-6 items-center">

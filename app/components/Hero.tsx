@@ -9,12 +9,37 @@ export default function Hero() {
 
       <div className="mx-auto max-w-4xl px-6 py-20 sm:py-32 relative z-10">
         <div className="text-center">
+          <img src="/profile.jpg" alt="Garret Krawchison" className="w-32 h-32 rounded-full mx-auto mb-6 shadow-lg" />
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Hi, I'm Gary, and I'm a Full-Stack Developer.
+            Hi, I&apos;m Garret, and I&apos;m a Full-Stack Developer.
           </h1>
-          <p className="mt-6 text-lg text-slate-300 sm:text-xl max-w-2xl mx-auto">
-            Showcase your work, skills, and passion with a clean, modern design.
-          </p>
+          <div className="mt-10 max-w-3xl mx-auto">
+            <h2 className="text-2xl font-semibold text-slate-100 mb-8">Core Competencies</h2>
+
+            <div className="grid gap-8 text-left">
+              <div>
+                <h3 className="text-lg font-semibold text-blue-400 mb-4">Web Development</h3>
+                <div className="flex flex-wrap gap-2">
+                  {['Vue.js', 'React', 'Laravel', 'JavaScript', 'TypeScript', 'PHP', 'PostgreSQL', 'MySQL'].map((skill) => (
+                    <span key={skill} className="px-4 py-2 bg-slate-800 border border-slate-700 rounded-full text-sm text-slate-200 hover:border-blue-500 transition-colors">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold text-purple-400 mb-4">Geospatial & Mapping</h3>
+                <div className="flex flex-wrap gap-2">
+                  {['Esri', 'ArcPy', 'PostGIS', 'GDAL', 'MapLibre', 'Mapbox', 'Leaflet', 'GeoJSON'].map((skill) => (
+                    <span key={skill} className="px-4 py-2 bg-slate-800 border border-slate-700 rounded-full text-sm text-slate-200 hover:border-purple-500 transition-colors">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
             <button className="rounded-lg bg-blue-600 px-8 py-3 font-semibold text-white hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-200">
               Get Started
