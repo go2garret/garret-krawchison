@@ -79,7 +79,7 @@ export default function Hero() {
               </div>
             </div>
           </div>
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
+          <div className="mt-14 flex flex-col gap-4 sm:flex-row sm:justify-center">
             <a href="#work" className="rounded-lg hover:cursor-pointer bg-blue-600 px-8 py-3 font-semibold text-white hover:bg-blue-700 hover:shadow-lg transition-all duration-200 text-center">
               View My Work
             </a>

@@ -1,8 +1,6 @@
-interface Project {
-  title: string;
-  description: string;
-  image?: string;
-}
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 
 type ImageProp = string | string[];
@@ -23,6 +21,9 @@ interface Job {
 }
 
 export default function Features() {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selected, setSelected] = useState<{ jobIndex: number; projectIndex: number } | null>(null);
+
   const jobs: Job[] = [
     {
       company: "Pastemap.com",
@@ -182,6 +183,16 @@ export default function Features() {
     );
   }
 
+  function openModal(jobIndex: number, projectIndex: number) {
+    setSelected({ jobIndex, projectIndex });
+    setModalOpen(true);
+  }
+
+  function closeModal() {
+    setModalOpen(false);
+    setSelected(null);
+  }
+
   return (
     <section id="work" className="w-full bg-slate-950 pt-20 sm:pt-32">
       <div className="mx-auto">
@@ -209,6 +220,18 @@ export default function Features() {
                         </p>
                         <h4 className="mt-3 text-4xl font-semibold text-white tracking-tight">{project.title}</h4>
                         <p className="mt-4 text-slate-400 leading-relaxed whitespace-pre-wrap">{project.description}</p>
+
+                        <div className="mt-6">
+                          <button
+                            onClick={() => openModal(jobIndex, projectIndex)}
+                            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg shadow-sm"
+                          >
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
+                              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm-1-11.5v6l5-3-5-3z" clipRule="evenodd" />
+                            </svg>
+                            <span>Walkthrough</span>
+                          </button>
+                        </div>
                       </div>
 
                       <div>{renderImages(project.images)}</div>
@@ -220,6 +243,40 @@ export default function Features() {
           ))}
         </div>
       </div>
+
+      {modalOpen && selected && (() => {
+        const job = jobs[selected.jobIndex];
+        const project = job.projects[selected.projectIndex];
+        return (
+          <div className="fixed inset-0 z-50 flex items-center justify-center">
+            <div className="absolute inset-0 bg-black/60" onClick={closeModal} />
+
+            <div className="relative max-w-4xl w-full mx-4 bg-slate-900 rounded-lg shadow-lg overflow-hidden">
+              <div className="px-6 py-4 border-b border-slate-800 flex items-start justify-between">
+                <div>
+                  <h3 className="text-2xl font-semibold text-white">{project.title}</h3>
+                  <p className="text-sm text-slate-400">{job.company}</p>
+                </div>
+                <button onClick={closeModal} className="text-slate-400 hover:text-white">
+                  <span className="sr-only">Close</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+
+              <div className="p-6 space-y-6">
+                <div className="space-y-4">
+                  <p className="text-slate-300 whitespace-pre-wrap">{project.description}</p>
+                </div>
+
+                <div>{renderImages(project.images)}</div>
+              </div>
+            </div>
+          </div>
+        );
+      })()}
+
     </section>
   );
 }
