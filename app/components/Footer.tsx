@@ -46,6 +46,11 @@ export default function Footer() {
                   LinkedIn
                 </a>
               </li>
+              <li>
+                <a href="https://codepen.io/g2g" className="hover:text-blue-400 transition-colors">
+                  CodePen
+                </a>
+              </li>
             </ul>
           </div>
         </div>

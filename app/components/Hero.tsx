@@ -30,6 +30,7 @@ export default function Hero() {
                     { name: 'PHP', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg' },
                     { name: 'PostgreSQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg' },
                     { name: 'MySQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg' },
+                    { name: 'Git', logo: 'https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png' },
                     { name: 'Linux', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg' },
                     { name: 'Nginx', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg' },
                     { name: 'Docker', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg' },
@@ -39,7 +40,7 @@ export default function Hero() {
                         <img
                           src={skill.logo}
                           alt={skill.name}
-                          className="h-8 w-8 opacity-75 grayscale-25 hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]"
+                          className="h-6 w-6 opacity-75 grayscale-25 hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]"
                         />
                       ) : null}
                       <span className="text-sm text-slate-300 group-hover:text-slate-200 transition-colors">
@@ -67,7 +68,7 @@ export default function Hero() {
                         <img
                           src={skill.logo}
                           alt={skill.name}
-                          className="h-8 w-8 w-auto grayscale-25 hover:grayscale-0 opacity-75 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(168,85,247,0.5)]"
+                          className="h-6 w-6 w-auto grayscale-25 hover:grayscale-0 opacity-75 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(168,85,247,0.5)]"
                         />
                       ) : null}
                       <span className="text-sm text-slate-300 group-hover:text-slate-200 transition-colors">

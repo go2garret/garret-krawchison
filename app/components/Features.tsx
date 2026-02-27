@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 type ImageProp = string | string[];
@@ -22,6 +22,7 @@ interface Job {
 
 export default function Features() {
   const [modalOpen, setModalOpen] = useState(false);
+  const [isShowing, setIsShowing] = useState(false);
   const [selected, setSelected] = useState<{ jobIndex: number; projectIndex: number } | null>(null);
 
   const jobs: Job[] = [
@@ -189,8 +190,43 @@ export default function Features() {
   }
 
   function closeModal() {
-    setModalOpen(false);
-    setSelected(null);
+    // play exit animation first, then hide
+    setIsShowing(false);
+    setTimeout(() => {
+      setModalOpen(false);
+      setSelected(null);
+    }, 300);
+  }
+
+  useEffect(() => {
+    if (modalOpen) {
+      // ensure show state is enabled for entry animation
+      requestAnimationFrame(() => setIsShowing(true));
+    }
+  }, [modalOpen]);
+
+  function renderModalImages(images?: ImageProp) {
+    if (!images) {
+      return (
+        <div className="bg-slate-800 rounded-lg h-64 flex items-center justify-center border border-slate-700">
+          <div className="text-center text-slate-500">
+            <p className="text-sm">Coming soon</p>
+          </div>
+        </div>
+      );
+    }
+
+    const imgs = Array.isArray(images) ? images : [images];
+
+    return (
+      <div className="flex flex-col items-center justify-center py-2 space-y-4">
+        {imgs.map((src, i) => (
+          <div key={i} className="inline-block rounded-lg overflow-hidden border border-slate-500 shadow-lg shadow-blue-500/10 mx-auto">
+            <img src={src} alt={`project-${i}`} className="block max-w-full h-auto" />
+          </div>
+        ))}
+      </div>
+    );
   }
 
   return (
@@ -224,7 +260,7 @@ export default function Features() {
                         <div className="mt-6">
                           <button
                             onClick={() => openModal(jobIndex, projectIndex)}
-                            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg shadow-sm"
+                            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg shadow-sm cursor-pointer transition-colors duration-200"
                           >
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
                               <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm-1-11.5v6l5-3-5-3z" clipRule="evenodd" />
@@ -244,15 +280,18 @@ export default function Features() {
         </div>
       </div>
 
-      {modalOpen && selected && (() => {
+      {(modalOpen || isShowing) && selected && (() => {
         const job = jobs[selected.jobIndex];
         const project = job.projects[selected.projectIndex];
         return (
           <div className="fixed inset-0 z-50 flex items-center justify-center">
-            <div className="absolute inset-0 bg-black/60" onClick={closeModal} />
+            <div
+              className={`absolute inset-0 bg-black/60 transition-opacity duration-300 ${isShowing ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+              onClick={closeModal}
+            />
 
-            <div className="relative max-w-4xl w-full mx-4 bg-slate-900 rounded-lg shadow-lg overflow-hidden">
-              <div className="px-6 py-4 border-b border-slate-800 flex items-start justify-between">
+            <div className={`relative max-w-4xl w-full mx-4 max-h-[90vh] h-auto bg-slate-900 rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 flex flex-col ${isShowing ? "opacity-100 translate-y-0 scale-100" : "opacity-0 -translate-y-4 scale-95"}`}>
+              <div className="px-8 py-6 border-b border-slate-800 flex items-start justify-between">
                 <div>
                   <h3 className="text-2xl font-semibold text-white">{project.title}</h3>
                   <p className="text-sm text-slate-400">{job.company}</p>
@@ -265,12 +304,12 @@ export default function Features() {
                 </button>
               </div>
 
-              <div className="p-6 space-y-6">
+              <div className="p-8 space-y-6 overflow-y-auto">
                 <div className="space-y-4">
                   <p className="text-slate-300 whitespace-pre-wrap">{project.description}</p>
                 </div>
 
-                <div>{renderImages(project.images)}</div>
+                <div>{renderModalImages(project.images)}</div>
               </div>
             </div>
           </div>
