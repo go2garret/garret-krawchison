@@ -1,37 +1,24 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import React from "react";
+import { useForm, ValidationError } from "@formspree/react";
 
 export default function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  // formspree hook (endpoint ID from https://formspree.io/f/mqedjdnk)
+  const [state, handleSubmit] = useForm("mqedjdnk");
+
+  // existing local state is no longer needed
+  // const [submitted, setSubmitted] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
+
+  /*
+  Old custom fetch logic replaced by Formspree's handleSubmit:
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsLoading(true);
-
-    const formData = new FormData(e.currentTarget);
-
-    try {
-      const response = await fetch("https://formspree.io/f/placeholder", {
-        method: "POST",
-        body: formData,
-        headers: {
-          Accept: "application/json",
-        },
-      });
-
-      if (response.ok) {
-        setSubmitted(true);
-        e.currentTarget.reset();
-        setTimeout(() => setSubmitted(false), 5000);
-      }
-    } catch (error) {
-      console.error("Error submitting form:", error);
-    } finally {
-      setIsLoading(false);
-    }
+    ...
   };
+  */
+
 
   return (
     <section id="contact" className="w-full bg-slate-950 py-20">
@@ -45,7 +32,7 @@ export default function ContactForm() {
           </p>
         </div>
 
-        {submitted && (
+        {state.succeeded && (
           <div className="mb-6 rounded-lg bg-emerald-500/20 border border-emerald-500/50 p-4 text-emerald-300">
             ✓ Thank you! Your message has been sent successfully.
           </div>
@@ -64,6 +51,11 @@ export default function ContactForm() {
               className="mt-2 w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
               placeholder="Your name"
             />
+            <ValidationError
+              prefix="Name"
+              field="name"
+              errors={state.errors}
+            />
           </div>
 
           <div>
@@ -77,6 +69,11 @@ export default function ContactForm() {
               required
               className="mt-2 w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
               placeholder="your@email.com"
+            />
+            <ValidationError
+              prefix="Email"
+              field="email"
+              errors={state.errors}
             />
           </div>
 
@@ -92,14 +89,19 @@ export default function ContactForm() {
               className="mt-2 w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
               placeholder="Your message here..."
             />
+            <ValidationError
+              prefix="Message"
+              field="message"
+              errors={state.errors}
+            />
           </div>
 
           <button
             type="submit"
-            disabled={isLoading}
+            disabled={state.submitting}
             className="w-full rounded-lg bg-blue-600 px-8 py-3 font-semibold text-white hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/50 disabled:bg-slate-700 transition-all duration-200"
           >
-            {isLoading ? "Sending..." : "Send Message"}
+            {state.submitting ? "Sending..." : "Send Message"}
           </button>
         </form>
       </div>

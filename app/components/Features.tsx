@@ -257,7 +257,7 @@ export default function Features() {
                         <h4 className="mt-3 text-4xl font-semibold text-white tracking-tight">{project.title}</h4>
                         <p className="mt-4 text-slate-400 leading-relaxed whitespace-pre-wrap">{project.description}</p>
 
-                        <div className="mt-6">
+                        <div className="mt-6 flex flex-wrap gap-2">
                           <button
                             onClick={() => openModal(jobIndex, projectIndex)}
                             className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg shadow-sm cursor-pointer transition-colors duration-200"
@@ -267,6 +267,20 @@ export default function Features() {
                             </svg>
                             <span>Walkthrough</span>
                           </button>
+
+                          {job.company === "Pastemap.com" && project.title === "Sharing Maps" && (
+                            <a
+                              href="https://pastemap.com/@Michael/Wind-Turbines"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-2 px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg shadow-sm transition-colors duration-200"
+                            >
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden>
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 13v6a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2h6m4-4h6m0 0v6m0-6L10 14" />
+                              </svg>
+                              <span>Jump to Example</span>
+                            </a>
+                          )}
                         </div>
                       </div>
 
@@ -308,6 +322,39 @@ export default function Features() {
                 <div className="space-y-4">
                   <p className="text-slate-300 whitespace-pre-wrap">{project.description}</p>
                 </div>
+
+                {job.company === "Pastemap.com" && project.title === "Sharing Maps" && (
+                  <div className="pt-6 space-y-4">
+                    <h4 className="text-lg font-semibold text-white">Check out some examples</h4>
+                    <p className="text-slate-300">
+                      These are custom maps made using PasteMap. Users can upload their own data and share with the world. Each map has unique user provided data containing user defined styles and symbols.
+                    </p>
+                    <ul className="list-disc list-inside text-slate-300 space-y-4">
+                      <li>
+                        <a
+                          href="https://pastemap.com/@Michael/Railway-Subdivisions"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-400 hover:underline"
+                        >
+                          Railway Subdivisions
+                        </a>
+                        : This map shows railway lines categorized by subdivision names. It also displays subdivision polygons created using a custom Voronoi polygons process, which converts the subdivision railway line data into polygon shapes.
+                      </li>
+                      <li>
+                        <a
+                          href="https://pastemap.com/@Michael/Wind-Turbines"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-400 hover:underline"
+                        >
+                          Wind Turbines
+                        </a>
+                        : This map shows wind turbine data from the FAA Wind Turbines publicly available dataset. Wind turbines have been symbolized using categories based on the KW output of each turbine.
+                      </li>
+                    </ul>
+                  </div>
+                )}
 
                 <div>{renderModalImages(project.images)}</div>
               </div>
