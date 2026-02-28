@@ -34,3 +34,12 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+### Adding a sitemap
+
+This project includes a simple sitemap generator under `app/sitemap.ts`. When the site is built, Next.js will expose it at `https://<your‑domain>/sitemap.xml`.
+
+- Set the `SITE_URL` environment variable (for local development create a `.env.local` and in Vercel set a project env var) to the canonical URL of your deployment.
+- Optionally add a `robots.txt` in `public/` (a basic example is already provided) so search engines know where to find the sitemap.
+
+Once deployed, submit `https://<your‑domain>/sitemap.xml` to Google Search Console to help index your single‑page app.

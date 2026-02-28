@@ -29,6 +29,13 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <Schema />
+        {/* help crawlers and tools discover the sitemap */}
+        <link
+          rel="sitemap"
+          type="application/xml"
+          title="Sitemap"
+          href="/sitemap.xml"
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-950 text-slate-100 pt-16`}

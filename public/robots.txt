@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+# replace with your actual domain or set via build-time string replacement
+Sitemap: https://garret-krawchison.vercel.app/sitemap.xml
