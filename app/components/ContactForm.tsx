@@ -3,13 +3,25 @@
 import React from "react";
 import { useForm, ValidationError } from "@formspree/react";
 
+import { useRef, useEffect, useState } from "react";
+import { Sparkles } from "./Sparkles";
+
 export default function ContactForm() {
   // formspree hook (endpoint ID from https://formspree.io/f/mqedjdnk)
   const [state, handleSubmit] = useForm("mqedjdnk");
+  const formRef = useRef<HTMLFormElement>(null);
+  const [showAnimation, setShowAnimation] = useState(false);
 
-  // existing local state is no longer needed
-  // const [submitted, setSubmitted] = useState(false);
-  // const [isLoading, setIsLoading] = useState(false);
+  // when the form has been sent successfully clear the fields, hide the form,
+  // and trigger a brief sparkle/fireworks animation
+  useEffect(() => {
+    if (state.succeeded) {
+      formRef.current?.reset();
+      setShowAnimation(true);
+      const timer = setTimeout(() => setShowAnimation(false), 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [state.succeeded]);
 
   /*
   Old custom fetch logic replaced by Formspree's handleSubmit:
@@ -33,12 +45,17 @@ export default function ContactForm() {
         </div>
 
         {state.succeeded && (
-          <div className="mb-6 rounded-lg bg-emerald-500/20 border border-emerald-500/50 p-4 text-emerald-300">
-            ✓ Thank you! Your message has been sent successfully.
+          <div className="mb-6 text-center rounded-lg bg-emerald-500/20 border border-emerald-500/50 p-4 text-emerald-300 relative overflow-hidden">
+            <div className="font-2xl rounded-full bg-emerald-500/50 w-14 h-14 mx-auto flex justify-center items-center mb-4">✓</div>
+            <div className="text-xl">Thank you! Your message has been sent successfully.</div>
+            <div className="mt-2 text-slate-200"> I will recieve an email and get back to you as soon as possible.</div>
+            {showAnimation && <Sparkles />}
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-6">
+        {/* only show the form when not yet succeeded */}
+        {!state.succeeded && (
+          <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-white">
               Name
@@ -99,11 +116,38 @@ export default function ContactForm() {
           <button
             type="submit"
             disabled={state.submitting}
-            className="w-full rounded-lg bg-blue-600 px-8 py-3 font-semibold text-white hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/50 disabled:bg-slate-700 transition-all duration-200"
+            className="w-full rounded-lg bg-blue-600 px-8 py-3 font-semibold text-white hover:bg-blue-700 disabled:bg-slate-700 transition-all duration-200 cursor-pointer"
           >
-            {state.submitting ? "Sending..." : "Send Message"}
+            {state.submitting ? (
+              <span className="flex items-center justify-center">
+                <svg
+                  className="animate-spin h-5 w-5 mr-2 text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  />
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8v8H4z"
+                  />
+                </svg>
+                Sending...
+              </span>
+            ) : (
+              "Send Message"
+            )}
           </button>
         </form>
+        )}
       </div>
     </section>
   );
