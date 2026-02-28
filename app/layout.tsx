@@ -18,6 +18,8 @@ export const metadata: Metadata = {
   description: "Full-Stack Developer specializing in web applications and geospatial tools.",
 };
 
+import Schema from "./components/Schema";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -25,6 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <Schema />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-950 text-slate-100 pt-16`}
       >
