@@ -40,7 +40,7 @@ export default function ContactForm() {
             Get in Touch
           </h2>
           <p className="mt-4 text-lg text-slate-400">
-            Have a question or want to work together? Send us a message.
+            Have a question or want to work together? Send me a message.
           </p>
         </div>
 
