@@ -324,8 +324,8 @@ export default function Features() {
                 </div>
 
                 {job.company === "Pastemap.com" && project.title === "Sharing Maps" && (
-                  <div className="pt-6 space-y-4">
-                    <h4 className="text-lg font-semibold text-white">Check out some examples</h4>
+                  <div className="space-y-4">
+                    <h4 className="text-lg font-semibold text-white">Example Maps Made with PasteMap</h4>
                     <p className="text-slate-300">
                       These are custom maps made using PasteMap. Users can upload their own data and share with the world. Each map has unique user provided data containing user defined styles and symbols.
                     </p>

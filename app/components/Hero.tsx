@@ -20,7 +20,7 @@ export default function Hero() {
             <div className="grid space-y-8 text-center">
               <div>
                 <h3 className="text-md font-semibold text-slate-200 mb-6">Web Development</h3>
-                <div className="grid grid-cols-5 items-center justify-center gap-x-12 gap-y-8">
+                <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8">
                   {[
                     { name: 'Vue.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg' },
                     { name: 'React', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg' },
@@ -36,7 +36,7 @@ export default function Hero() {
                     { name: 'Nginx', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg' },
                     { name: 'Docker', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg' },
                   ].map((skill) => (
-                    <div key={skill.name} className="flex items-center gap-2 group">
+                    <div key={skill.name} className="flex items-center gap-2 group w-1/7">
                       {skill.logo ? (
                         <img
                           src={skill.logo}
@@ -54,7 +54,7 @@ export default function Hero() {
 
               <div>
                 <h3 className="text-md font-semibold text-slate-200 mb-6">Geospatial & Mapping</h3>
-                <div className="grid grid-cols-5 items-start justify-center gap-x-12 gap-y-8">
+                <div className="flex flex-wrap items-start justify-center gap-x-12 gap-y-8">
                   {[
                     { name: 'Esri', logo: '/esri.png' },
                     { name: 'ArcPy', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/archive/c/c3/20220821153845%21Python-logo-notext.svg/120px-Python-logo-notext.svg.png' },
@@ -64,7 +64,7 @@ export default function Hero() {
                     { name: 'Mapbox', logo: 'https://images.icon-icons.com/2699/PNG/512/mapbox_logo_icon_169974.png' },
                     { name: 'GeoJSON', logo: 'https://cdn-icons-png.flaticon.com/512/136/136525.png' },
                   ].map((skill) => (
-                    <div key={skill.name} className="flex items-center gap-2 group">
+                    <div key={skill.name} className="flex items-center gap-2 group w-1/7">
                       {skill.logo ? (
                         <img
                           src={skill.logo}
