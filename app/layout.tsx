@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Garret Krawchison Portfolio",
+  title: "Garret Krawchison | Fullstack Engineer in San Diego, CA",
   description: "Full-Stack Developer specializing in web applications and geospatial tools.",
 };
 
