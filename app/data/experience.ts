@@ -50,6 +50,7 @@ export type Experience = {
   highlights: string[];
   metric?: ExperienceMetric;
   artwork: ExperienceArtwork;
+  website?: ExperienceWalkthroughLink;
   walkthroughs?: ExperienceWalkthrough[];
 };
 
@@ -61,6 +62,10 @@ export const experiences: Experience[] = [
     role: "Founder, Sole Developer",
     description:
       "An AI-powered creative platform that turns product photos into video ads and marketing assets — built for solo media buyers and DTC founders running paid campaigns on Meta and TikTok.",
+    website: {
+      label: "Visit NewScene.ai",
+      href: "https://newscene.ai",
+    },
     highlights: [
       "AI video ad generation from a single product photo, powered by a Seedance 2.0 pipeline",
       "nine-skill AI image suite — thumbnails, ad sets, banners, character sheets, and more",
@@ -82,6 +87,13 @@ export const experiences: Experience[] = [
             src: "/newscene-images.webp",
             alt: "NewScene image suite grid for thumbnails, ad images, banners, and character sheets",
             label: "image suite",
+          },
+        ],
+        links: [
+          {
+            label: "View example",
+            href: "https://newscene.ai/gallery/videos",
+            description: "Browse example AI video ads created with NewScene.",
           },
         ],
       },
@@ -359,3 +371,5 @@ export const experiences: Experience[] = [
     },
   },
 ];
+
+

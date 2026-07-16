@@ -26,6 +26,27 @@ function Highlights({ highlights }: { highlights: string[] }) {
   );
 }
 
+
+function ExperienceDescription({ experience, className }: { experience: Experience; className: string }) {
+  return (
+    <p className={className}>
+      {experience.description}
+      {experience.website ? (
+        <>
+          {" "}
+          <a
+            href={experience.website.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-ink underline decoration-lime decoration-4 underline-offset-4 hover:bg-lime focus:bg-lime"
+          >
+            {experience.website.label} ↗
+          </a>
+        </>
+      ) : null}
+    </p>
+  );
+}
 function MetricCard({ metric }: { metric: NonNullable<Experience["metric"]> }) {
   return (
     <aside className="mt-5 border-2 border-ink bg-paper p-4 shadow-[6px_6px_0_var(--color-ink,#0a0a0a)] sm:p-5 lg:min-w-56">
@@ -62,9 +83,7 @@ export default function ExperienceItem({ experience, index }: ExperienceItemProp
         <p className="mt-3 font-mono text-sm font-semibold text-ink sm:text-base">
           {experience.role}
         </p>
-        <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink/85 sm:text-lg">
-          {experience.description}
-        </p>
+        <ExperienceDescription experience={experience} className="mt-4 max-w-2xl text-base leading-relaxed text-ink/85 sm:text-lg" />
         <div className={experience.metric ? "lg:grid lg:grid-cols-[minmax(0,1fr)_auto] lg:items-start lg:gap-8" : ""}>
           <Highlights highlights={experience.highlights} />
           {experience.metric ? <MetricCard metric={experience.metric} /> : null}
@@ -116,9 +135,7 @@ export default function ExperienceItem({ experience, index }: ExperienceItemProp
       <p className="mt-3 font-mono text-sm font-semibold text-ink sm:text-base">
         {experience.role}
       </p>
-      <p className="mt-4 max-w-xl text-base leading-relaxed text-ink/80 sm:text-lg">
-        {experience.description}
-      </p>
+      <ExperienceDescription experience={experience} className="mt-4 max-w-xl text-base leading-relaxed text-ink/80 sm:text-lg" />
 
       <Highlights highlights={experience.highlights} />
       <ExperienceWalkthroughs
@@ -146,3 +163,4 @@ export default function ExperienceItem({ experience, index }: ExperienceItemProp
     </Reveal>
   );
 }
+

@@ -102,7 +102,8 @@ export default function ExperienceWalkthroughs({
           backgroundSize: "auto, 12px 12px",
         }}
       />
-<section
+
+      <section
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
@@ -148,7 +149,7 @@ export default function ExperienceWalkthroughs({
               {selected.links?.length ? (
                 <div className="mt-6 border-t-2 border-ink pt-4">
                   <p className="font-mono text-xs font-bold uppercase tracking-wide text-muted">
-                    Example maps
+                    Examples
                   </p>
                   <div className="mt-3 grid gap-3">
                     {selected.links.map((link) => (
@@ -213,6 +214,8 @@ export default function ExperienceWalkthroughs({
     </>
   );
 }
+
+
 
 
 
