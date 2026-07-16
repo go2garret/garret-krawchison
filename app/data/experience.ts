@@ -3,8 +3,9 @@ export type ExperienceImage = {
   alt: string;
   label: string;
   figure: string;
-  shape?: "landscape" | "portrait";
+  shape?: "landscape" | "portrait" | "vertical-3x2";
   objectPosition?: string;
+  classes?: string;
   hideFigure?: boolean;
 };
 
@@ -33,6 +34,38 @@ export type Experience = {
 
 export const experiences: Experience[] = [
   {
+    id: "newscene",
+    dates: "2024 — Present",
+    company: "NewScene",
+    role: "Founder, Sole Developer",
+    description:
+      "An AI-powered creative platform that turns product photos into video ads and marketing assets — built for solo media buyers and DTC founders running paid campaigns on Meta and TikTok.",
+    highlights: [
+      "AI video ad generation from a single product photo, powered by a Seedance 2.0 pipeline",
+      "nine-skill AI image suite — thumbnails, ad sets, banners, character sheets, and more",
+      "Brand Kit system enforcing consistent color, font, and style across every generation",
+    ],
+    artwork: {
+      variant: "overlap",
+      images: [
+        {
+          src: "/newscene-images.webp",
+          alt: "NewScene image suite grid for thumbnails, ad images, banners, and character sheets",
+          label: "image-suite",
+          figure: "fig 2",
+          classes: "grayscale transition-filter",
+        },
+        {
+          src: "/newscene-videos.webp",
+          alt: "NewScene video ad studio showing a product photo moving through an AI pipeline into an ad preview",
+          label: "video-ad-studio",
+          figure: "fig 1",
+          classes: "grayscale transition-filter",
+        },
+      ],
+    },
+  },
+  {
     id: "pastemap",
     dates: "Jul 2023 — Present",
     company: "Pastemap.com",
@@ -53,12 +86,15 @@ export const experiences: Experience[] = [
           alt: "Pastemap public map showing geographic features and map controls",
           label: "public-map",
           figure: "fig 2",
+          classes: "grayscale transition-filter",
         },
         {
           src: "/collaborators.webp",
           alt: "Pastemap collaborator permissions interface over a custom map",
           label: "map-sharing",
           figure: "fig 1",
+          shape: "landscape",
+          classes: "grayscale transition-filter",
         },
       ],
     },
@@ -87,6 +123,7 @@ export const experiences: Experience[] = [
           alt: "Leonard’s Studio school administration portal dashboard",
           label: "school-portal",
           figure: "fig 1",
+          classes: "grayscale transition-filter",
         },
         {
           src: "/digital-id-mockup.jpg",
@@ -95,6 +132,7 @@ export const experiences: Experience[] = [
           figure: "fig 2",
           shape: "portrait",
           objectPosition: "center top",
+          classes: "grayscale transition-filter",
         },
       ],
     },
@@ -125,6 +163,7 @@ export const experiences: Experience[] = [
           label: "railroad-mapping",
           figure: "fig 3",
           hideFigure: true,
+          classes: "grayscale transition-filter",
         },
       ],
     },
@@ -150,8 +189,11 @@ export const experiences: Experience[] = [
           label: "wind-turbines",
           figure: "fig 4",
           hideFigure: true,
+          classes: "grayscale contrast-[0.5] brightness-[1.4]",
         },
       ],
     },
   },
 ];
+
+

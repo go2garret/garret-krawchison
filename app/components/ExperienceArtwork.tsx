@@ -37,23 +37,25 @@ function FrameCorners() {
 
 function ImageFrame({ image, className }: { image: ExperienceImage; className: string }) {
   const portrait = image.shape === "portrait";
+  const vertical32 = image.shape === "vertical-3x2";
+  const vertical = portrait || vertical32;
 
   return (
-    <figure className={`${className} border-2 border-ink bg-paper p-2 shadow-[8px_8px_0_rgba(10,10,10,0.10)] sm:p-3`}>
+    <figure className={`${className} ${vertical32 ? "!w-[34%] sm:!w-[32%] lg:!w-[34%]" : ""} group border-2 border-ink bg-paper p-2 shadow-[8px_8px_0_rgba(10,10,10,0.10)] sm:p-3`}>
       <span className="absolute -top-5 left-5 z-20 border-2 border-ink bg-paper px-4 py-1 font-mono text-[11px] font-semibold sm:text-xs">
         {image.label}
       </span>
       <div
         className={`relative overflow-hidden border border-ink/30 bg-[#e8e8e2] ${
-          portrait ? "aspect-[3/4]" : "aspect-[16/10]"
+          vertical32 ? "aspect-[2/3]" : portrait ? "aspect-[3/4]" : "aspect-[16/10]"
         }`}
       >
         <Image
           src={image.src}
           alt={image.alt}
           fill
-          sizes={portrait ? "(max-width: 768px) 34vw, 18vw" : "(max-width: 768px) 72vw, 42vw"}
-          className={portrait ? "object-cover" : "object-cover object-top"}
+          sizes={vertical ? "(max-width: 768px) 34vw, 18vw" : "(max-width: 768px) 72vw, 42vw"}
+          className={`${vertical ? "object-cover" : "object-cover object-top"} ${image.classes ?? ""}`}
           style={{ objectPosition: image.objectPosition }}
         />
       </div>
@@ -85,7 +87,7 @@ export default function ExperienceArtwork({ artwork, metric }: ExperienceArtwork
       {isMap ? null : (
         <span
           aria-hidden="true"
-          className="absolute inset-x-[8%] bottom-[4%] top-[13%] -z-10 rotate-[1.5deg] bg-[#e3e0d5]"
+          className="absolute inset-x-[8%] bottom-[4%] top-[13%] -z-10 rotate-[1.5deg] bg-[var(--lime)]"
         />
       )}
 
@@ -129,3 +131,4 @@ export default function ExperienceArtwork({ artwork, metric }: ExperienceArtwork
     </div>
   );
 }
+

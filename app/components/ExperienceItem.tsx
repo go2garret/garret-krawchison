@@ -46,7 +46,7 @@ export default function ExperienceItem({ experience, index }: ExperienceItemProp
   if (isMapFeature) {
     const mapFirst = experience.artwork.variant === "map-card";
     const artwork = (
-      <div className={mapFirst ? "lg:col-span-5" : "lg:col-span-7"}>
+      <div className={mapFirst ? "lg:col-span-5" : "lg:col-span-7 group"}>
         <ExperienceArtwork artwork={experience.artwork} />
       </div>
     );
@@ -89,7 +89,7 @@ export default function ExperienceItem({ experience, index }: ExperienceItemProp
   }
 
   const artwork = (
-    <div className={artworkFirst ? "lg:col-span-7" : "lg:col-span-7 lg:col-start-6"}>
+    <div className={artworkFirst ? "lg:col-span-7" : "lg:col-span-7 lg:col-start-6 group"}>
       <ExperienceArtwork artwork={experience.artwork} metric={experience.metric} />
     </div>
   );
