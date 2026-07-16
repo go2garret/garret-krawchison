@@ -88,7 +88,7 @@ export default function ExperienceArtwork({ artwork, metric }: ExperienceArtwork
       {isMap ? null : (
         <span
           aria-hidden="true"
-          className="absolute inset-x-[8%] bottom-[4%] top-[13%] -z-10 rotate-[1.5deg] bg-[var(--pink)]"
+          className="absolute inset-x-[8%] bottom-[4%] top-[13%] -z-10 rotate-[1.5deg] bg-slate-200"
         />
       )}
 
@@ -104,13 +104,13 @@ export default function ExperienceArtwork({ artwork, metric }: ExperienceArtwork
         <div className="absolute left-[58%] top-[55%] z-30 hidden items-center sm:flex">
           <span aria-hidden="true" className="size-4 rounded-full border-[3px] border-ink bg-lime" />
           <span aria-hidden="true" className="h-px w-24 bg-ink lg:w-36" />
-          <span className="bg-paper pl-3 font-mono text-xs font-semibold sm:text-sm">
+          <span className="bg-paper border-2 border-black px-3 font-mono text-xs font-semibold sm:text-sm">
             {artwork.callout}
           </span>
         </div>
       ) : artwork.callout ? (
         <div className="absolute bottom-[18%] left-0 z-30 hidden items-center sm:flex">
-          <span className="max-w-28 bg-paper pr-3 font-mono text-xs font-semibold leading-tight">
+          <span className="max-w-28 bg-paper border-2 border-black px-3 font-mono text-xs font-semibold leading-tight">
             {artwork.callout}
           </span>
           <span aria-hidden="true" className="h-px w-16 bg-ink" />

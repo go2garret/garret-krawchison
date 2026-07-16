@@ -45,7 +45,7 @@ export default function Hero() {
         </div>
 
         <div className="relative isolate mx-auto w-full max-w-3xl px-2 py-4 sm:px-5 lg:px-0">
-          <span aria-hidden="true" className="absolute inset-x-5 bottom-0 top-8 -z-10 rotate-[1.5deg] bg-[var(--pink)] lg:inset-x-0 lg:translate-x-5" />
+          <span aria-hidden="true" className="absolute inset-x-5 bottom-0 top-8 -z-10 rotate-[1.5deg] bg-slate-200 lg:inset-x-0 lg:translate-x-5" />
           <div className="-rotate-[0.8deg] overflow-hidden rounded-[10px] border-[4px] border-ink bg-editor text-editor-line shadow-[0_0_0_2px_var(--paper)]">
             <div className="grid grid-cols-[auto_1fr] border-b-2 border-editor-line">
               <div className="flex items-center gap-3 border-r-2 border-editor-line px-5 py-4 sm:px-7">
@@ -71,7 +71,7 @@ export default function Hero() {
                 <br />
                 &nbsp;&nbsp;focus: [<span className="text-paper-bright">&apos;web apps&apos;</span>, <span className="text-paper-bright">&apos;geospatial tools&apos;</span>],
                 <br />
-                &nbsp;&nbsp;building: <span className="text-paper-bright">&apos;Pastemap.com&apos;</span>,
+                &nbsp;&nbsp;building: <span className="text-paper-bright">&apos;NewScene.ai&apos;</span>,
                 <br />
                 {"};"} <span aria-hidden="true" className="hero-cursor inline-block h-[1.15em] w-2 translate-y-[0.16em] bg-lime" />
               </code>
