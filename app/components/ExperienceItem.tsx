@@ -1,5 +1,6 @@
 import type { Experience } from "@/app/data/experience";
 import ExperienceArtwork from "./ExperienceArtwork";
+import ExperienceWalkthroughs from "./ExperienceWalkthroughs";
 import Reveal from "./Reveal";
 
 type ExperienceItemProps = {
@@ -68,6 +69,12 @@ export default function ExperienceItem({ experience, index }: ExperienceItemProp
           <Highlights highlights={experience.highlights} />
           {experience.metric ? <MetricCard metric={experience.metric} /> : null}
         </div>
+        <ExperienceWalkthroughs
+          company={experience.company}
+          dates={experience.dates}
+          role={experience.role}
+          walkthroughs={experience.walkthroughs}
+        />
       </div>
     );
 
@@ -114,6 +121,12 @@ export default function ExperienceItem({ experience, index }: ExperienceItemProp
       </p>
 
       <Highlights highlights={experience.highlights} />
+      <ExperienceWalkthroughs
+        company={experience.company}
+        dates={experience.dates}
+        role={experience.role}
+        walkthroughs={experience.walkthroughs}
+      />
     </div>
   );
 
