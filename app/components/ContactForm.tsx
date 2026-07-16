@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { useForm, ValidationError } from "@formspree/react";
+import { useContactSuccess } from "./ContactSuccessProvider";
 
 type ContactFields = {
   name: string;
@@ -48,21 +49,42 @@ type ContactFieldsFormState = ReturnType<typeof useForm<ContactFields>>[0];
 
 export default function ContactForm() {
   const [state, handleSubmit, resetForm] = useForm<ContactFields>("mqedjdnk");
+  const { showContactSuccess } = useContactSuccess();
   const formRef = useRef<HTMLFormElement>(null);
+  const hasAnnouncedSuccessRef = useRef(false);
+  const resetTimerRef = useRef<number | null>(null);
 
   useEffect(() => {
     if (!state.succeeded) {
+      hasAnnouncedSuccessRef.current = false;
       return;
     }
 
+    if (hasAnnouncedSuccessRef.current) {
+      return;
+    }
+
+    hasAnnouncedSuccessRef.current = true;
+    showContactSuccess();
     formRef.current?.reset();
 
-    const timer = window.setTimeout(() => {
-      resetForm();
-    }, 2400);
+    if (resetTimerRef.current) {
+      window.clearTimeout(resetTimerRef.current);
+    }
 
-    return () => window.clearTimeout(timer);
-  }, [resetForm, state.succeeded]);
+    resetTimerRef.current = window.setTimeout(() => {
+      resetForm();
+      resetTimerRef.current = null;
+    }, 2400);
+  }, [resetForm, showContactSuccess, state.succeeded]);
+
+  useEffect(() => {
+    return () => {
+      if (resetTimerRef.current) {
+        window.clearTimeout(resetTimerRef.current);
+      }
+    };
+  }, []);
 
   const nameHasError = fieldHasError(state.errors, "name");
   const emailHasError = fieldHasError(state.errors, "email");

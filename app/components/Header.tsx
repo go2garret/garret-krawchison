@@ -23,7 +23,7 @@ function LinkedInIcon() {
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b-[3px] border-ink bg-paper/95 backdrop-blur-sm">
+    <header className="border-b-[3px] border-ink bg-paper/95 backdrop-blur-sm">
       <div className="site-wrap grid min-h-[4.75rem] grid-cols-[1fr_auto] items-center gap-x-4 py-3 md:grid-cols-[1fr_auto_1fr] md:py-4">
         <a href="#home" className="group flex w-fit items-center gap-4" aria-label="Garret Krawchison, home">
           <span className="pressable flex size-12 items-center justify-center border-[3px] border-ink bg-lime font-display text-xl font-black shadow-brutal-sm sm:size-14 sm:text-2xl">
@@ -70,3 +70,4 @@ export default function Header() {
     </header>
   );
 }
+

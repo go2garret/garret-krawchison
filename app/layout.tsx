@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Space_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
+import { ContactSuccessBanner, ContactSuccessProvider } from "./components/ContactSuccessProvider";
 import Schema from "./components/Schema";
 
 const inter = Inter({
@@ -43,9 +44,15 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${spaceMono.variable} bg-paper text-ink antialiased`}
       >
-        <Header />
-        {children}
+        <ContactSuccessProvider>
+          <div className="sticky top-0 z-50">
+            <ContactSuccessBanner />
+            <Header />
+          </div>
+          {children}
+        </ContactSuccessProvider>
       </body>
     </html>
   );
 }
+
