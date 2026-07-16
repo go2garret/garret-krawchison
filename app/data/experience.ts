@@ -119,7 +119,7 @@ export const experiences: Experience[] = [
       variant: "dashboard-phone",
       images: [
         {
-          src: "/school-portal-desktop.png",
+          src: "/digital-id-manager.png",
           alt: "Leonard’s Studio school administration portal dashboard",
           label: "school-portal",
           figure: "fig 1",
