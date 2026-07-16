@@ -57,18 +57,18 @@ export type Experience = {
 export const experiences: Experience[] = [
   {
     id: "newscene",
-    dates: "2024 — Present",
+    dates: "2024-Present",
     company: "NewScene",
     role: "Founder, Sole Developer",
     description:
-      "An AI-powered creative platform that turns product photos into video ads and marketing assets — built for solo media buyers and DTC founders running paid campaigns on Meta and TikTok.",
+      "An AI-powered creative platform that turns product photos into video ads and marketing assets, built for solo media buyers and DTC founders running paid campaigns on Meta and TikTok.",
     website: {
       label: "Visit NewScene.ai",
       href: "https://newscene.ai",
     },
     highlights: [
       "AI video ad generation from a single product photo, powered by a Seedance 2.0 pipeline",
-      "nine-skill AI image suite — thumbnails, ad sets, banners, character sheets, and more",
+      "nine-skill AI image suite - thumbnails, ad sets, banners, character sheets, and more",
       "Brand Kit system enforcing consistent color, font, and style across every generation",
     ],
     walkthroughs: [
@@ -120,11 +120,11 @@ export const experiences: Experience[] = [
   },
   {
     id: "pastemap",
-    dates: "Jul 2023 — Present",
+    dates: "Jul 2023 - Present",
     company: "Pastemap.com",
     role: "Founder, Builder",
     description:
-      "A browser-based, collaborative GIS platform focused on custom mapping workflows — real-time updates, vector-tile imports, and fine-grained sharing controls.",
+      "A browser-based, collaborative GIS platform focused on custom mapping workflows, real-time updates, vector-tile imports, and fine-grained sharing controls.",
     highlights: [
       "real-time collaboration via Laravel Reverb",
       "external dataset imports as PostGIS vector tiles",
@@ -201,7 +201,7 @@ export const experiences: Experience[] = [
   },
   {
     id: "leonards-studio",
-    dates: "Dec 2018 — Jul 2023",
+    dates: "Dec 2018 - Jul 2023",
     company: "Leonard’s Studio",
     role: "Senior Systems Engineer",
     description:
@@ -272,7 +272,7 @@ export const experiences: Experience[] = [
   },
   {
     id: "heery-international",
-    dates: "Jul 2011 — Mar 2017",
+    dates: "Jul 2011 - Mar 2017",
     company: "Heery International",
     role: "GIS Analyst · CSX Contractor",
     description:
@@ -331,7 +331,7 @@ export const experiences: Experience[] = [
   },
   {
     id: "nextera-energy",
-    dates: "May 2008 — Jul 2011",
+    dates: "May 2008 - Jul 2011",
     company: "NextEra Energy Resources",
     role: "GIS Analyst",
     description:

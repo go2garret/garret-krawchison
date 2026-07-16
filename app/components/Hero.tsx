@@ -23,9 +23,8 @@ export default function Hero() {
           </p>
 
           <p className="mt-8 max-w-2xl text-base leading-8 sm:text-lg lg:text-xl">
-            Building web applications and geospatial systems for over a decade —
-            from FAA data pipelines to a collaborative GIS platform used by teams
-            today. Currently building Pastemap.com.
+            Building web applications and geospatial systems for over a decade,
+            from FAA data pipelines to a AI agent-driven workflows.
           </p>
 
           <div className="mt-9 flex flex-wrap gap-5">
