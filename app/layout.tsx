@@ -1,24 +1,28 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Space_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
+import Schema from "./components/Schema";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const spaceMono = Space_Mono({
+  variable: "--font-space-mono",
   subsets: ["latin"],
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Garret Krawchison | Fullstack Engineer in San Diego, CA",
-  description: "Full-Stack Developer specializing in web applications and geospatial tools.",
+  title: "Garret Krawchison | Full-Stack Engineer in San Diego, CA",
+  description:
+    "Full-stack engineer building web applications and geospatial systems.",
 };
-
-import Schema from "./components/Schema";
 
 export default function RootLayout({
   children,
@@ -29,7 +33,6 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <Schema />
-        {/* help crawlers and tools discover the sitemap */}
         <link
           rel="sitemap"
           type="application/xml"
@@ -38,7 +41,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-950 text-slate-100 pt-16`}
+        className={`${inter.variable} ${spaceMono.variable} bg-paper text-ink antialiased`}
       >
         <Header />
         {children}

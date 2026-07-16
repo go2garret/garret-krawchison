@@ -1,13 +1,15 @@
 import Hero from "./components/Hero";
-import Features from "./components/Features";
+import StackSection from "./components/StackSection";
+import ExperienceSection from "./components/ExperienceSection";
 import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
 
 export default function Home() {
   return (
-    <main className="w-full">
+    <main>
       <Hero />
-      <Features />
+      <StackSection />
+      <ExperienceSection />
       <ContactForm />
       <Footer />
     </main>

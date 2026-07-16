@@ -1,0 +1,38 @@
+:root {
+  --ink: #090a08;
+  --paper: #fbfaf5;
+  --paper-bright: #ffffff;
+  --paper-alt: #f0eee6;
+  --lime: #b8f31d;
+  --lime-strong: #a9e10d;
+  --muted: #5e5e56;
+  --line: #d8d4c7;
+  --editor: #0b0c0b;
+  --editor-line: #e9e8e1;
+  --shadow-offset: 7px;
+  --site-gutter: clamp(1.25rem, 4vw, 4rem);
+  --site-width: 96rem;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-paper-bright: var(--paper-bright);
+  --color-paper-alt: var(--paper-alt);
+  --color-lime: var(--lime);
+  --color-lime-strong: var(--lime-strong);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-editor: var(--editor);
+  --color-editor-line: var(--editor-line);
+
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-space-mono);
+  --font-display: var(--font-space-mono);
+
+  --shadow-brutal: var(--shadow-offset) var(--shadow-offset) 0 var(--ink);
+  --shadow-brutal-sm: 4px 4px 0 var(--ink);
+  --shadow-paper: 11px 11px 0 var(--line);
+
+  --ease-press: cubic-bezier(0.2, 0.8, 0.2, 1);
+}

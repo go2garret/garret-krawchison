@@ -1,93 +1,81 @@
 export default function Hero() {
   return (
-    <section id="home" className="w-full bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white relative overflow-hidden min-h-full ">
-      {/* Subtle background element */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl"></div>
-      </div>
-
-      <div className="mx-auto max-w-4xl px-6 py-20 sm:py-32 relative z-10">
-        <div className="text-center">
-          <img src="/profile.jpg" alt="Garret Krawchison" className="w-32 h-32 rounded-full mx-auto mb-6 shadow-lg" />
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Hi, I&apos;m Garret, and I&apos;m a Full-Stack Developer.
-          </h1>
-          <p className="mt-6 text-slate-300 max-w-2xl mx-auto">
-            I build full-stack web applications and geospatial tools that solve real problems. Currently building <span className="text-blue-300 font-semibold">Pastemap.com</span>, a collaborative GIS platform. I love combining elegant design with powerful backend systems to create experiences that people actually want to use.
+    <section id="home" aria-labelledby="hero-title" className="border-b-2 border-ink bg-paper py-16 sm:py-20 lg:py-24">
+      <div className="site-wrap grid items-center gap-16 lg:grid-cols-[0.97fr_1.03fr] lg:gap-14 xl:gap-20">
+        <div>
+          <p className="mb-5 flex items-center gap-4 font-mono text-sm font-semibold tracking-[0.03em] sm:text-base">
+            <span aria-hidden="true" className="font-sans text-3xl font-bold leading-none text-lime-strong">
+              ✓
+            </span>
+            <span>{"// full-stack engineer"}</span>
           </p>
-          <div className="mt-12 max-w-3xl mx-auto">
-            <div className="grid space-y-8 text-center">
-              <div>
-                <h3 className="text-md font-semibold text-slate-200 mb-6">Web Development</h3>
-                <div className="flex flex-wrap items-center justify-center gap-x-8 sm:gap-x-12 gap-y-8">
-                  {[
-                    { name: 'Vue.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg' },
-                    { name: 'React', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg' },
-                    { name: 'Laravel', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg' },
-                    { name: 'JavaScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg' },
-                    { name: 'TypeScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg' },
-                    { name: 'PHP', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg' },
-                    { name: 'PostgreSQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg' },
-                    { name: 'MySQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg' },
-                    { name: 'npm', logo: 'https://images.icon-icons.com/2108/PNG/512/npm_icon_130871.png' },
-                    { name: 'Git', logo: 'https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png' },
-                    { name: 'Linux', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg' },
-                    { name: 'Nginx', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg' },
-                    { name: 'Docker', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg' },
-                  ].map((skill) => (
-                    <div key={skill.name} className="flex items-center gap-2 group w-1/4 sm:w-1/7">
-                      {skill.logo ? (
-                        <img
-                          src={skill.logo}
-                          alt={skill.name}
-                          className="h-6 w-6 opacity-75 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]"
-                        />
-                      ) : null}
-                      <span className="text-sm text-slate-300 group-hover:text-slate-200 transition-colors">
-                        {skill.name}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
 
-              <div>
-                <h3 className="text-md font-semibold text-slate-200 mb-6">Geospatial & Mapping</h3>
-                <div className="flex flex-wrap items-start justify-center gap-x-8 sm:gap-x-12 gap-y-8">
-                  {[
-                    { name: 'Esri', logo: '/esri.png' },
-                    { name: 'ArcPy', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/archive/c/c3/20220821153845%21Python-logo-notext.svg/120px-Python-logo-notext.svg.png' },
-                    { name: 'PostGIS', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg' },
-                    { name: 'GDAL', logo: '/osgeo.png' },
-                    { name: 'MapLibre', logo: 'https://maplibre.org/maplibre-gl-js/docs/assets/logo.svg' },
-                    { name: 'Mapbox', logo: 'https://images.icon-icons.com/2699/PNG/512/mapbox_logo_icon_169974.png' },
-                    { name: 'GeoJSON', logo: 'https://cdn-icons-png.flaticon.com/512/136/136525.png' },
-                  ].map((skill) => (
-                    <div key={skill.name} className="flex items-center gap-2 group w-1/4 sm:w-1/7">
-                      {skill.logo ? (
-                        <img
-                          src={skill.logo}
-                          alt={skill.name}
-                          className="h-6 w-6 w-auto opacity-75 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(168,85,247,0.5)]"
-                        />
-                      ) : null}
-                      <span className="text-sm text-slate-300 group-hover:text-slate-200 transition-colors">
-                        {skill.name}
-                      </span>
-                    </div>
-                  ))}
-                </div>
+          <h1
+            id="hero-title"
+            className="font-display text-[clamp(4rem,8.4vw,8.2rem)] font-black leading-[0.86] tracking-[-0.065em]"
+          >
+            <span className="block">Garret</span>
+            <span className="block">Krawchison</span>
+          </h1>
+
+          <p className="mt-8 inline-block border-[3px] border-ink bg-lime px-5 py-2 font-display text-[clamp(1.55rem,3.2vw,3.3rem)] font-bold leading-tight shadow-brutal sm:px-7 sm:py-3">
+            Full-Stack Engineer
+          </p>
+
+          <p className="mt-8 max-w-2xl text-base leading-8 sm:text-lg lg:text-xl">
+            Building web applications and geospatial systems for over a decade —
+            from FAA data pipelines to a collaborative GIS platform used by teams
+            today. Currently building Pastemap.com.
+          </p>
+
+          <div className="mt-9 flex flex-wrap gap-5">
+            <a
+              href="#work"
+              className="pressable inline-flex min-w-40 items-center justify-center border-[3px] border-ink bg-lime px-7 py-4 font-mono text-sm font-bold shadow-brutal sm:text-base"
+            >
+              View work
+            </a>
+            <a
+              href="#contact"
+              className="pressable inline-flex min-w-40 items-center justify-center border-[3px] border-ink bg-paper-bright px-7 py-4 font-mono text-sm font-bold shadow-brutal sm:text-base"
+            >
+              Contact me
+            </a>
+          </div>
+        </div>
+
+        <div className="relative isolate mx-auto w-full max-w-3xl px-2 py-4 sm:px-5 lg:px-0">
+          <span aria-hidden="true" className="absolute inset-x-5 bottom-0 top-8 -z-10 rotate-[1.5deg] bg-line lg:inset-x-0 lg:translate-x-5" />
+          <div className="-rotate-[0.8deg] overflow-hidden rounded-[10px] border-[4px] border-ink bg-editor text-editor-line shadow-[0_0_0_2px_var(--paper)]">
+            <div className="grid grid-cols-[auto_1fr] border-b-2 border-editor-line">
+              <div className="flex items-center gap-3 border-r-2 border-editor-line px-5 py-4 sm:px-7">
+                <span className="size-4 rounded-full border-2 border-editor-line sm:size-5" />
+                <span className="size-4 rounded-full border-2 border-editor-line sm:size-5" />
+                <span className="size-4 rounded-full border-2 border-editor-line sm:size-5" />
+              </div>
+              <div className="relative flex items-center px-5 font-mono text-xs font-bold sm:px-7 sm:text-base">
+                profile.ts
+                <span aria-hidden="true" className="absolute bottom-0 left-4 h-1 w-36 bg-lime sm:w-44" />
               </div>
             </div>
-          </div>
-          <div className="mt-14 flex flex-col gap-4 sm:flex-row sm:justify-center">
-            <a href="#work" className="rounded-lg hover:cursor-pointer bg-blue-600 px-8 py-3 font-semibold text-white hover:bg-blue-700 hover:shadow-lg transition-all duration-200 text-center">
-              View My Work
-            </a>
-            <a href="#contact" className="rounded-lg hover:cursor-pointer border border-slate-400 px-8 py-3 font-semibold text-white hover:bg-slate-800 hover:border-slate-300 transition-colors text-center">
-              Contact Me
-            </a>
+
+            <div className="overflow-x-auto px-5 py-8 font-mono text-[11px] leading-[2] sm:px-9 sm:py-10 sm:text-sm lg:text-[clamp(0.75rem,1vw,1rem)] xl:px-12 xl:py-12">
+              <code className="block min-w-max">
+                <span className="text-lime">const</span> engineer = {"{"}
+                <br />
+                &nbsp;&nbsp;name: <span className="text-paper-bright">&apos;Garret Krawchison&apos;</span>,
+                <br />
+                &nbsp;&nbsp;title: <span className="text-paper-bright">&apos;Full-Stack Engineer&apos;</span>,
+                <br />
+                &nbsp;&nbsp;location: <span className="text-paper-bright">&apos;San Diego, CA&apos;</span>,
+                <br />
+                &nbsp;&nbsp;focus: [<span className="text-paper-bright">&apos;web apps&apos;</span>, <span className="text-paper-bright">&apos;geospatial tools&apos;</span>],
+                <br />
+                &nbsp;&nbsp;building: <span className="text-paper-bright">&apos;Pastemap.com&apos;</span>,
+                <br />
+                {"};"} <span aria-hidden="true" className="hero-cursor inline-block h-[1.15em] w-2 translate-y-[0.16em] bg-lime" />
+              </code>
+            </div>
           </div>
         </div>
       </div>
